@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Müşteri Paneli - SalonRandevu</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css?v=3">
+</head>
+
+<body>
+
+  <div class="dashboard-wrapper customer-dashboard-page">
+
+    <!-- Sidebar -->
+    <aside class="sidebar premium-sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-scissors me-2"></i>
+        SalonRandevu
+      </div>
+
+      <a href="#appointmentsSection" class="active">
+        <i class="fa-solid fa-calendar-check me-2"></i>
+        Randevularım
+      </a>
+
+      <a href="#profileSection">
+        <i class="fa-solid fa-user me-2"></i>
+        Profil Bilgilerim
+      </a>
+
+      <a href="salons.html">
+        <i class="fa-solid fa-store me-2"></i>
+        Salonlar
+      </a>
+
+      <a href="#" onclick="logoutUser()" class="logout-link">
+        <i class="fa-solid fa-right-from-bracket me-2"></i>
+        Çıkış Yap
+      </a>
+    </aside>
+
+    <!-- Content -->
+    <main class="dashboard-content">
+
+      <!-- Top -->
+      <div class="dashboard-top premium-dashboard-top">
+        <div>
+          <span class="page-badge">
+            <i class="fa-solid fa-user me-2"></i>
+            Müşteri Paneli
+          </span>
+
+          <h3 class="fw-bold mt-3 mb-1">Randevularım</h3>
+          <p class="text-muted mb-0">
+            Tüm randevularınızı buradan takip edebilirsiniz.
+          </p>
+        </div>
+
+        <div class="user-welcome">
+          <div class="user-avatar">
+            <i class="fa-solid fa-user"></i>
+          </div>
+
+          <div>
+            <span class="d-block fw-bold">Hoşgeldiniz,</span>
+            <span class="text-purple fw-semibold logged-user-name">Kullanıcı</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Cards -->
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <div class="customer-small-card">
+            <div class="customer-small-icon">
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+
+            <div>
+              <h6 class="fw-bold mb-1">Randevu Takibi</h6>
+              <p class="text-muted mb-0">Onay durumunuzu görün.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="customer-small-card">
+            <div class="customer-small-icon">
+              <i class="fa-solid fa-store"></i>
+            </div>
+
+            <div>
+              <h6 class="fw-bold mb-1">Salon Seçimi</h6>
+              <p class="text-muted mb-0">Yeni salonları inceleyin.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="customer-small-card">
+            <div class="customer-small-icon">
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div>
+              <h6 class="fw-bold mb-1">Değerlendirme</h6>
+              <p class="text-muted mb-0">Salonlara yorum yapın.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Appointments -->
+      <div class="dashboard-card premium-dashboard-card" id="appointmentsSection">
+
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+          <h5 class="fw-bold mb-0">
+            <i class="fa-solid fa-list-check text-purple me-2"></i>
+            Randevu Listesi
+          </h5>
+
+          <a href="salons.html" class="btn purple-btn btn-sm">
+            <i class="fa-solid fa-plus me-1"></i>
+            Yeni Randevu Al
+          </a>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table appointment-table premium-table">
+            <thead>
+              <tr>
+                <th>Salon</th>
+                <th>Hizmet</th>
+                <th>Tarih</th>
+                <th>Saat</th>
+                <th>Durum</th>
+              </tr>
+            </thead>
+
+            <tbody id="appointmentsTableBody">
+              <!-- Randevular JavaScript ile buraya gelecek -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- Profile -->
+      <div class="dashboard-card premium-dashboard-card mt-4" id="profileSection">
+        <div class="d-flex align-items-center mb-4">
+          <span class="section-title-icon">
+            <i class="fa-solid fa-user"></i>
+          </span>
+
+          <div>
+            <h5 class="fw-bold mb-1">Profil Bilgilerim</h5>
+            <p class="text-muted mb-0">Hesap bilgilerinizi buradan görüntüleyebilirsiniz.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">
+              <i class="fa-solid fa-user text-purple me-1"></i>
+              Ad Soyad
+            </label>
+            <input type="text" class="form-control" id="profileFullName" readonly>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">
+              <i class="fa-solid fa-envelope text-purple me-1"></i>
+              E-posta
+            </label>
+            <input type="email" class="form-control" id="profileEmail" readonly>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label class="form-label">
+              <i class="fa-solid fa-id-card text-purple me-1"></i>
+              Hesap Türü
+            </label>
+            <input type="text" class="form-control" id="profileRole" readonly>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    protectPage(["customer"]);
+    showLoggedUserName();
+    showCustomerAppointments();
+    showCustomerProfile();
+  </script>
+
+</body>
+
+</html>

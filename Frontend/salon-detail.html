@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salon Detay - SalonRandevu</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css?v=3">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg main-navbar fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">SalonRandevu</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Ana Sayfa</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="salons.html">Salonlar</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="aboutUs.html">Hakkımızda</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">İletişim</a>
+          </li>
+        </ul>
+
+        <div class="d-flex gap-2 navbar-auth-buttons">
+          <a href="login.html" class="btn btn-outline-purple">Giriş Yap</a>
+          <a href="register.html" class="btn purple-btn">Kayıt Ol</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Salon Detail -->
+  <section class="salon-detail-page py-5">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <div class="detail-breadcrumb mb-4">
+        <a href="index.html">Ana Sayfa</a>
+        <span>/</span>
+        <a href="salons.html">Salonlar</a>
+        <span>/</span>
+        <strong id="detailSalonNameBread">Salon</strong>
+      </div>
+
+      <div class="row g-4 align-items-start">
+
+        <!-- Left Side Images -->
+        <div class="col-lg-7">
+          <div class="detail-image-card">
+            <img id="detailMainImage" src="" class="img-fluid detail-main-img" alt="Salon Resmi">
+
+            <div class="d-flex gap-3 mt-3 flex-wrap">
+              <img id="smallImg1" src="" class="detail-small-img" onclick="changeDetailImage(this.src)"
+                alt="Salon küçük resim">
+              <img id="smallImg2" src="" class="detail-small-img" onclick="changeDetailImage(this.src)"
+                alt="Salon küçük resim">
+              <img id="smallImg3" src="" class="detail-small-img" onclick="changeDetailImage(this.src)"
+                alt="Salon küçük resim">
+              <img id="smallImg4" src="" class="detail-small-img" onclick="changeDetailImage(this.src)"
+                alt="Salon küçük resim">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Info -->
+        <div class="col-lg-5">
+
+          <div class="detail-info-card">
+            <span class="page-badge">
+              <i class="fa-solid fa-store me-2"></i>
+              Salon Detayı
+            </span>
+
+            <h2 class="fw-bold mt-3 mb-3" id="detailSalonName"></h2>
+
+            <div class="info-item">
+              <div class="info-icon location-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <p class="salon-info-text" id="detailSalonLocation"></p>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon rating-icon">
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="salon-info-text" id="detailSalonRating"></p>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon phone-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <p class="salon-info-text" id="detailSalonPhone"></p>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon address-icon">
+                <i class="fa-solid fa-map-pin"></i>
+              </div>
+              <p class="salon-info-text" id="detailSalonAddress"></p>
+            </div>
+
+            <p class="salon-description mt-4" id="detailSalonDescription"></p>
+
+            <a id="bookingButton" href="#" class="btn purple-btn w-100 mt-3">
+              <i class="fa-solid fa-calendar-plus me-2"></i>
+              Randevu Al
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="row g-4 mt-1">
+
+        <!-- Services -->
+        <div class="col-lg-6">
+          <div class="services-box h-100">
+            <h5 class="fw-bold mb-3 d-flex align-items-center">
+              <span class="section-title-icon">
+                <i class="fa-solid fa-scissors"></i>
+              </span>
+              Hizmetlerimiz
+            </h5>
+
+            <div id="detailServicesList">
+              <!-- Hizmetler JavaScript ile buraya gelecek -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="col-lg-6">
+          <div class="services-box h-100">
+            <h5 class="fw-bold mb-3 d-flex align-items-center">
+              <span class="review-title-icon">
+                <i class="fa-solid fa-star"></i>
+              </span>
+              Değerlendirmeler
+            </h5>
+
+            <div class="review-form-box">
+              <div class="mb-3">
+                <label class="form-label">Puanınız</label>
+                <select class="form-select" id="reviewRating">
+                  <option value="">Puan seçiniz</option>
+                  <option value="5">5 - Çok iyi</option>
+                  <option value="4">4 - İyi</option>
+                  <option value="3">3 - Orta</option>
+                  <option value="2">2 - Kötü</option>
+                  <option value="1">1 - Çok kötü</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Yorumunuz</label>
+                <textarea class="form-control" id="reviewComment" rows="3"
+                  placeholder="Yorumunuzu yazınız..."></textarea>
+              </div>
+
+              <button type="button" class="btn purple-btn w-100" onclick="addReview()">
+                <i class="fa-solid fa-paper-plane me-2"></i>
+                Değerlendirme Gönder
+              </button>
+            </div>
+
+            <div id="reviewsList">
+              <!-- Yorumlar JavaScript ile buraya gelecek -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- AI Assistant Chatbot -->
+  <div class="ai-chat-button" onclick="toggleAiChat()">
+    <i class="fa-solid fa-robot"></i>
+  </div>
+
+  <div class="ai-chat-box" id="aiChatBox">
+    <div class="ai-chat-header">
+      <div>
+        <strong>Akıllı Kuaför Asistanı</strong>
+        <small>Salon ve hizmet önerisi</small>
+      </div>
+
+      <button onclick="toggleAiChat()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="ai-message bot">
+        Merhaba, ben Akıllı Kuaför Asistanı. Size salon önerisi, hizmet önerisi, randevu alma ve yorumlar konusunda
+        yardımcı olabilirim.
+      </div>
+    </div>
+
+    <div class="ai-chat-input">
+      <input type="text" id="aiUserMessage" placeholder="Örn: Saçlarım yıprandı...">
+      <button onclick="sendAiMessage()">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+
+  <script>
+    showSalonDetail();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
